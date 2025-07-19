@@ -1,6 +1,6 @@
 from behave import *
 
-use_step_matcher("re")
+
 
 
 @then("Check the button is enabled after 5 seconds")

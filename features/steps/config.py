@@ -12,7 +12,6 @@ import os
 
 from Pages.draganddrop import draganddropclass
 from Pages.framespage import handling_frames
-from Pages.Login import login
 
 
 @given("Launch the browser")
@@ -25,11 +24,10 @@ def step_impl(context):
         options.add_argument("--ignore-certificate-error")
         options.add_argument("--ignore-ssl-errors")
         options.add_argument("--disable-notifications")
-        # options.add_argument("download.default_directory=C:\\Users\\786 Computers\\PycharmProjects\\E2E-Web\\TestData\\Downloaded_Files")
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
         options.add_argument("--disable-blink-features=AutomationControlled")
-        context.driver = webdriver.Chrome(options=options, executable_path=ChromeDriverManager().install())
+        context.driver = webdriver.Chrome(options=options, executable_path='C:/Users/Hp/PycharmProjects/DemoQA/chromedriver-win64/chromedriver-win64/chromedriver.exe')
         context.driver.maximize_window()
     elif TestData.BROWSER == 'firefox':
         options = webdriver.FirefoxOptions()
@@ -83,7 +81,7 @@ def step_impl(context):
     context.dynamic_prop = dynamic_properties(context.driver)
 
 
-@when("Open the iris URL")
-def step_impl(context):
-    context.driver.get(TestData.iris_app_login_page)
-    context.loginpage = login(context.driver)
+# @when("Open the iris URL")
+# def step_impl(context):
+#     context.driver.get(TestData.iris_app_login_page)
+#     context.loginpage = login(context.driver)

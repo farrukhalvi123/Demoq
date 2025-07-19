@@ -33,6 +33,7 @@ class practiceform:
         return '%02x%02x%02x' %rgb
 
     def enter_firstname(self,fname):
+        assert "Student Registration Form" in self.driver.page_source
         time.sleep(2)
         self.driver.find_element(By.ID, self.firstname_id).clear()
         self.driver.find_element(By.ID,self.firstname_id).send_keys(fname)
